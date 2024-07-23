@@ -21,6 +21,7 @@ class App {
 
 		// '_'로 시작하는 것은 해당 class 내에서만 사용되는 Private 이라고 지정
 		// 개발자들간의 약속임!
+		console.log( 'd' );
 
 		window.onresize = this.resize.bind( this );
 		this.resize();
