@@ -59,7 +59,7 @@ class App {
 
 	_setupModel() {
 
-		const geometry = new THREE.BoxGeometry( 1, 1, 1 );
+		const geometry = new THREE.RingGeometry( 0.5, 0.60 );
 		const fillMaterial = new THREE.MeshPhongMaterial( { color: 'gray' } );
 		const cube = new THREE.Mesh( geometry, fillMaterial );
 
