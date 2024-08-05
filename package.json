@@ -124,5 +124,8 @@
       "build/three.module.js"
     ],
     "directories": {}
+  },
+  "dependencies": {
+    "three-rounded-box": "^0.1.1"
   }
 }
