@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 
-export const LensContainer = () => {
+export const container = () => {
 
 	const shape = new THREE.Shape();
 	const bodyMaterial = new THREE.MeshStandardMaterial( { color: 'gray', side: THREE.DoubleSide } );
@@ -36,13 +36,13 @@ export const LensContainer = () => {
 	};
 
 	const geometry = new THREE.ExtrudeGeometry( shape, extrudeSettings );
-	const lensContainerMesh = new THREE.Mesh( geometry, bodyMaterial );
-	lensContainerMesh.position.y = 0.45;
-	lensContainerMesh.position.z = - 0.3;
-	lensContainerMesh.position.x = 0.5;
-	lensContainerMesh.rotateY( - Math.PI / 2 );
+	const mesh = new THREE.Mesh( geometry, bodyMaterial );
+	mesh.position.y = 0.45;
+	mesh.position.z = - 0.3;
+	mesh.position.x = 0.5;
+	mesh.rotateY( - Math.PI / 2 );
 
 
-	return lensContainerMesh;
+	return mesh;
 
 };

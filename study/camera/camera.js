@@ -1,10 +1,11 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'OrbitControls';
 import { createBoxWithRoundedEdges } from './shapes/createBoxWithRoundedEdge.js';
-import { LensContainer } from './components/LensContainer.js';
+import { viewFinder } from './components/viewFinder/viewFinder.js';
 import { lens } from './components/lens.js';
-import { viewFinder } from './components/viewFinder.js';
 import { button } from './components/button.js';
+import { imageViewer } from './components/imageViewer.js';
+import { imageSelector } from './components/imageSelector.js';
 
 class App {
 
@@ -34,7 +35,6 @@ class App {
 		// 창크키가 변경될 때마다 창 크기에 맞게 설정되도록
 		// this가 app class의 객체를 가리키도록 bind로 묶어줌.
 		requestAnimationFrame( this.render.bind( this ) );
-		scene.environment = envMap;
 
 	}
 
@@ -82,22 +82,21 @@ class App {
 		const bodyMesh = new THREE.Mesh( bodyGeometry, bodyMaterial );
 		camera.add( bodyMesh );
 
-		const lensContainer = new THREE.Object3D();
-		lensContainer.position.y = 0.6;
-		camera.add( lensContainer );
-
-		const lensContainerMesh = LensContainer();
-		lensContainer.add( lensContainerMesh );
+		const ViewFinder = viewFinder();
+		camera.add( ViewFinder );
 
 		const lensMesh = lens();
 		camera.add( lensMesh );
 
-		const viewFinderMesh = viewFinder();
-		lensContainer.add( viewFinderMesh );
-
 
 		const buttonGeometry = button();
 		camera.add( buttonGeometry );
+
+		const ImageViewer = imageViewer();
+		camera.add( ImageViewer );
+
+		const ImageSelector = imageSelector();
+		camera.add( ImageSelector );
 
 	}
 
